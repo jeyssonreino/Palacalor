@@ -1,0 +1,28 @@
+/*Script de la base de datos de: PALACALOR*/
+CREATE DATABASE palacalor;
+USE  palacalor;
+
+CREATE TABLE producto(
+id INT AUTO_INCREMENT PRIMARY KEY,
+nombre VARCHAR(255) NOT NULL,
+precio DECIMAL(10,2) NOT NULL,
+imagen VARCHAR(255) NOT NULL,
+tipo VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE pedidos(
+id INT AUTO_INCREMENT PRIMARY KEY,
+cantidad INT NOT NULL,
+cedula VARCHAR(10) NOT NULL,
+nombre VARCHAR(255) NOT NULL,
+celular VARCHAR(10) NOT NULL,
+direccion VARCHAR(255) NOT NULL,
+id_producto INT NOT NULL,
+    FOREIGN KEY (id_producto) REFERENCES producto(id)
+);
+
+INSERT INTO `producto` (`id`, `nombre`, `precio`, `imagen`, `tipo`) VALUES
+(1, 'Six Pack Aguila Original 300cc ', 50000.00, '/assets/images/aguila.jpg', ''),
+(2, 'Six Pack Budweiser Original 300cc ', 49000.00, '/assets/images/budweiser.webp', ''),
+(3, 'Six Pack Heineken Original 300cc ', 46000.00, '/assets/images/heineken.webp', ''),
+(4, 'Six Pack Poker Original 300cc ', 37900.00, '/assets/images/poker.webp', '');
